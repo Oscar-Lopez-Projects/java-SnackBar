@@ -1,44 +1,54 @@
 package snackBarApp;
 
-public class Main{
+public class Customer{
 
-	//setting up the private values
-	public static int maxId=0;
-	private int id;
-	private String name;
-	private double wallet;
+    //setting up the private values
+    public static int maxId=0;
+    private int id;
+    private String name;
+    private double wallet;
 
-	//constructor
-	public Customer(String name, double wallet){
-		maxId++;
-		id= maxId;
+    //constructor
+    public Customer(String name, double wallet){
+        maxId++;
+        id= maxId;
 
-		this.name;
-		this.wallet;
-	}
+        this.name = name;
+        this.wallet = wallet;
+    }
 
-	//getters
-	public int getId(){
-		return id;
-	}
-	public String getName(){
-		return name;
-	}
-	public double getWallet(){
-		return wallet;
-	}
+    //getters
+    public int getId(){
+        return id;
+    }
+    public String getName(){
+        return name;
+    }
+    public double getWallet(){
+        return wallet;
+    }
 
-	//setters
-	public void setId(int id){
-		this.id=id;
-	}
-	public void setName(String name){
-		this.name = name;
-	}
-	public void setWallet(double wallet){
-		this.wallet = wallet;
-	}
+    //setters
+    public void setId(int id){
+        this.id = id;
+    }
+    public void setName(String name){
+        this.name = name;
+    }
+    public void setWallet(double wallet){
+        this.wallet = wallet;
+    }
 
-	//buy snacks. Given the total cost of the snacks to be purchased, reduce the cash on hand by that amount
+    //add, substract
+    public void addCash(double cash){
+        this.wallet += cash;
+    }
 
+    public void buySnack(double snackCost){
+        this.wallet -= snackCost;
+    }
+
+    @Override public String toString(){
+        return "Customer " + id + ": " + name + " has " + wallet;
+    }
 }
